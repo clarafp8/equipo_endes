@@ -68,13 +68,7 @@ class DesarrolladorTest {
 	}
 	@Test
 	@DisplayName("Debería calcular la productividad dependiendo del lenguaje principal")
-<<<<<<< HEAD
 	void testCalcularProductividadConLenguajeJava() {
-=======
-	void testCalcularProductividad() {
-		
-		if(desarrollador.getLenguajePrincipal().equalsIgnoreCase("Java")||desarrollador.getLenguajePrincipal().equalsIgnoreCase("Python")) {
->>>>>>> dev/añadirMiembro
 			double resultadoEsperado=1320;
 			assertEquals(resultadoEsperado, desarrollador.calcularProductividad());
 			

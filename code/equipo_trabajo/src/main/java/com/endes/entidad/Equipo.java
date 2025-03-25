@@ -24,6 +24,11 @@ public class Equipo {
         if (p == null) {
             throw new IllegalArgumentException("El miembro no puede ser nulo.");
         }
+        for(int i=0; i<miembros.size();i++) {
+        	if(miembros.get(i).getDni().equals(p.getDni())) {
+        		throw new IllegalArgumentException("El miembro no puede tener el mismo DNI que otro miembro.");
+        	}
+        }
         miembros.add(p);
     }
 
