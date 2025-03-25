@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -67,13 +69,22 @@ class EquipoTest {
      * - Comprueba que la lista tiene el tamaño correcto.
      * - Verifica que los valores de productividad son los esperados.
      */
-    /*
+    
     @Test
     @DisplayName("Listar las productividades del equipo")
     void testListarProductividades() {
-        // Tu código aquí
+    	Personal dev1 = new Desarrollador("123A", "Ana", 1000.0, "Java");
+        Personal dev2 = new Desarrollador("125B", "Pedro", 1100.0, "C++");
+        equipo.añadirMiembro(dev1);
+        equipo.añadirMiembro(dev2);
+        
+        List<Double> resultadoEsperado=equipo.listarProductividades();
+        List<Double> resultado=equipo.listarProductividades();
+        
+        assertEquals(resultadoEsperado, resultado);
+         
     }
-    */
+    
     /**
      * Verifica que un equipo nuevo se inicializa con la lista de miembros vacía.
      */
@@ -88,10 +99,12 @@ class EquipoTest {
      * Verifica que no se puede añadir un miembro null al equipo.
      * Debe lanzarse IllegalArgumentException con el mensaje adecuado.
      */
-    /*  @Test
+      @Test
     @DisplayName("No se permite añadir un miembro null al equipo")
     void testAñadirMiembroNull() {
-          // Tu código aquí
-    }
-    */
+    	Exception excepcion= assertThrows(IllegalArgumentException.class, ()->equipo.añadirMiembro(null));
+      	String mensajeEsperado="El miembro no puede ser nulo.";
+      	assertEquals(mensajeEsperado, excepcion.getMessage());
+     }
+    
 }
