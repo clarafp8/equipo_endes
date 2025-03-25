@@ -68,18 +68,26 @@ class DesarrolladorTest {
 	}
 	@Test
 	@DisplayName("Debería calcular la productividad dependiendo del lenguaje principal")
-	void testCalcularProductividad() {
-		if(desarrollador.getLenguajePrincipal().equalsIgnoreCase("Java")||desarrollador.getLenguajePrincipal().equalsIgnoreCase("Python")) {
+	void testCalcularProductividadConLenguajeJava() {
 			double resultadoEsperado=1320;
-			double resultadoObtenido=desarrollador.getSueldoBase()*1.10;
-			assertEquals(resultadoEsperado, resultadoObtenido);
-		}else {
+			assertEquals(resultadoEsperado, desarrollador.calcularProductividad());
+			
+	}
+	@Test
+	@DisplayName("Debería calcular la productividad dependiendo del lenguaje principal")
+	void testCalcularProductividadConLenguajePython() {
+			desarrollador=new Desarrollador("11111111H","Juan",1200.0,"Python");
+			double resultadoEsperado=1320;
+			assertEquals(resultadoEsperado, desarrollador.calcularProductividad());
+			
+	}
+	@Test
+	@DisplayName("Debería calcular la productividad dependiendo del lenguaje principal")
+	void testCalcularProductividadConOtroLenguaje() {
+			desarrollador=new Desarrollador("11111111H","Juan",1200.0,"C++");
 			double resultadoEsperado=1200;
-			double resultadoObtenido=desarrollador.getSueldoBase();
-			assertEquals(resultadoEsperado, resultadoObtenido);
-		}
-		
-		
+			assertEquals(resultadoEsperado, desarrollador.calcularProductividad());
+			
 	}
 
 
